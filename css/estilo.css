@@ -57,3 +57,33 @@ body {
   background-color: #555;
   color: #fff;
 }
+.arena {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.lado {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 160px;
+  padding: 10px;
+}
+
+.nome {
+  font-weight: bold;
+  margin: 0;
+}
+
+.jogada {
+  font-size: 28px;
+  text-transform: capitalize;
+  margin: 10px 0;
+}
+
+.versus {
+  font-size: 24px;
+  font-weight: bold;
+}
