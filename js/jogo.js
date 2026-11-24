@@ -34,6 +34,7 @@ const jogadaJogador = document.querySelector('#jogada-jogador');
 const jogadaComputador = document.querySelector('#jogada-computador');
 const pontosJogador = document.querySelector('#pontos-jogador');
 const pontosComputador = document.querySelector('#pontos-computador');
+const botaoReiniciar = document.querySelector('#botao-reiniciar');
 
 function atualizarPlacar() {
   pontosJogador.textContent = placar.jogador;
@@ -56,6 +57,18 @@ function verificarFimDeJogo() {
   }
 }
 
+function reiniciarJogo() {
+  placar.jogador = 0;
+  placar.computador = 0;
+  atualizarPlacar();
+
+  jogadaJogador.textContent = '?';
+  jogadaComputador.textContent = '?';
+  textoResultado.textContent = 'Faça sua jogada!';
+
+  travarBotoes(false);
+}
+
 function jogarRodada(escolhaJogador) {
   const escolhaComputador = escolhaDoComputador();
   const vencedor = verificarVencedor(escolhaJogador, escolhaComputador);
@@ -74,7 +87,6 @@ function jogarRodada(escolhaJogador) {
 
   atualizarPlacar();
   verificarFimDeJogo();
-
 }
 
 for (const botao of botoesEscolha) {
@@ -82,3 +94,5 @@ for (const botao of botoesEscolha) {
     jogarRodada(botao.dataset.escolha);
   });
 }
+
+botaoReiniciar.addEventListener('click', reiniciarJogo);
