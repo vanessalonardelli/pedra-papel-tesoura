@@ -8,7 +8,29 @@
 </head>
 <body>
 
-  <h1>Pedra, Papel e Tesoura</h1>
+   <h1>Pedra, Papel e Tesoura</h1>
+
+  <section class="instrucoes">
+    <h2>Como jogar</h2>
+    <p>Clique em pedra, papel ou tesoura. O computador escolhe ao mesmo tempo.</p>
+    <p>Pedra vence tesoura, tesoura vence papel e papel vence pedra.</p>
+    <p>Quem fizer 3 pontos primeiro vence a partida.</p>
+  </section>
+
+  <section class="opcoes">
+    <button class="botao-escolha" data-escolha="pedra">Pedra</button>
+    <button class="botao-escolha" data-escolha="papel">Papel</button>
+    <button class="botao-escolha" data-escolha="tesoura">Tesoura</button>
+  </section>
+
+  <section class="placar">
+    <p>Você: <span id="pontos-jogador">0</span></p>
+    <p>Computador: <span id="pontos-computador">0</span></p>
+  </section>
+
+  <p id="resultado">Faça sua jogada!</p>
+
+  <button id="botao-reiniciar">Jogar de novo</button>
 
   <script src="js/jogo.js"></script>
 </body>
