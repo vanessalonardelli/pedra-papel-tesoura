@@ -91,3 +91,14 @@ body {
   background-color: #999;
   cursor: not-allowed;
 }
+.vitoria {
+  color: #2f855a;
+}
+
+.derrota {
+  color: #c53030;
+}
+
+.empate {
+  color: #718096;
+}

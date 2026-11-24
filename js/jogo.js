@@ -41,6 +41,13 @@ function atualizarPlacar() {
   pontosComputador.textContent = placar.computador;
 }
 
+function mudarCorResultado(classe) {
+  textoResultado.classList.remove('vitoria', 'derrota', 'empate');
+  if (classe) {
+    textoResultado.classList.add(classe);
+  }
+}
+
 function travarBotoes(travar) {
   for (const botao of botoesEscolha) {
     botao.disabled = travar;
@@ -65,6 +72,7 @@ function reiniciarJogo() {
   jogadaJogador.textContent = '?';
   jogadaComputador.textContent = '?';
   textoResultado.textContent = 'Faça sua jogada!';
+  mudarCorResultado();
 
   travarBotoes(false);
 }
@@ -77,12 +85,15 @@ function jogarRodada(escolhaJogador) {
 
   if (vencedor === 'empate') {
     textoResultado.textContent = 'Empate! Os dois escolheram ' + escolhaJogador + '.';
+    mudarCorResultado('empate');
   } else if (vencedor === 'jogador') {
     placar.jogador++;
     textoResultado.textContent = 'Você venceu! ' + escolhaJogador + ' vence ' + escolhaComputador + '.';
+    mudarCorResultado('vitoria');
   } else {
     placar.computador++;
     textoResultado.textContent = 'Você perdeu! ' + escolhaComputador + ' vence ' + escolhaJogador + '.';
+    mudarCorResultado('derrota');
   }
 
   atualizarPlacar();
