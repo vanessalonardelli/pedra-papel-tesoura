@@ -16,6 +16,8 @@ const placar = {
   computador: 0
 };
 
+const pontosParaVencer = 3;
+
 function verificarVencedor(jogador, computador) {
   if (jogador === computador) {
     return 'empate';
@@ -38,7 +40,22 @@ function atualizarPlacar() {
   pontosComputador.textContent = placar.computador;
 }
 
-// joga uma rodada
+function travarBotoes(travar) {
+  for (const botao of botoesEscolha) {
+    botao.disabled = travar;
+  }
+}
+
+function verificarFimDeJogo() {
+  if (placar.jogador === pontosParaVencer) {
+    textoResultado.textContent = 'Fim de jogo! Você venceu a partida por ' + placar.jogador + ' a ' + placar.computador + '.';
+    travarBotoes(true);
+  } else if (placar.computador === pontosParaVencer) {
+    textoResultado.textContent = 'Fim de jogo! O computador venceu por ' + placar.computador + ' a ' + placar.jogador + '.';
+    travarBotoes(true);
+  }
+}
+
 function jogarRodada(escolhaJogador) {
   const escolhaComputador = escolhaDoComputador();
   const vencedor = verificarVencedor(escolhaJogador, escolhaComputador);
@@ -56,6 +73,8 @@ function jogarRodada(escolhaJogador) {
   }
 
   atualizarPlacar();
+  verificarFimDeJogo();
+
 }
 
 for (const botao of botoesEscolha) {
