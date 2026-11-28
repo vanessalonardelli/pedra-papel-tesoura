@@ -3,47 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pedra, Papel e Tesoura</title>
-  <link rel="stylesheet" href="css/estilo.css">
+  <title>Pedra, Papel, Tesoura, Lagarto, Spock</title>
   <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
 
-   <h1>Pedra, Papel e Tesoura</h1>
+  <main>
+    <h1>Pedra, Papel, Tesoura, Lagarto, Spock</h1>
 
-  <section class="instrucoes">
-    <h2>Como jogar</h2>
-    <p>Clique em pedra, papel ou tesoura. O computador escolhe ao mesmo tempo.</p>
-    <p>Pedra vence tesoura, tesoura vence papel e papel vence pedra.</p>
-    <p>Quem fizer 3 pontos primeiro vence a partida.</p>
-  </section>
+    <section class="instrucoes">
+      <h2>Como jogar</h2>
+      <p>Escolha uma das cinco opções. O computador escolhe ao mesmo tempo. Cada opção vence duas e perde para outras duas.</p>
+      <ul class="regras">
+        <li>Tesoura corta papel</li>
+        <li>Papel cobre pedra</li>
+        <li>Pedra esmaga lagarto</li>
+        <li>Lagarto envenena Spock</li>
+        <li>Spock quebra tesoura</li>
+        <li>Tesoura decapita lagarto</li>
+        <li>Lagarto come papel</li>
+        <li>Papel refuta Spock</li>
+        <li>Spock vaporiza pedra</li>
+        <li>Pedra quebra tesoura</li>
+      </ul>
+      <p>Quem fizer 3 pontos primeiro vence a partida.</p>
+    </section>
 
-  <section class="opcoes">
-    <button class="botao-escolha" data-escolha="pedra">Pedra</button>
-    <button class="botao-escolha" data-escolha="papel">Papel</button>
-    <button class="botao-escolha" data-escolha="tesoura">Tesoura</button>
-  </section>
+    <section class="opcoes">
+      <button class="botao-escolha" data-escolha="pedra">Pedra</button>
+      <button class="botao-escolha" data-escolha="papel">Papel</button>
+      <button class="botao-escolha" data-escolha="tesoura">Tesoura</button>
+      <button class="botao-escolha" data-escolha="lagarto">Lagarto</button>
+      <button class="botao-escolha" data-escolha="spock">Spock</button>
+    </section>
 
     <section class="arena">
-    <div class="lado">
-      <p class="nome">Você</p>
-      <p id="jogada-jogador" class="jogada">?</p>
-    </div>
-    <p class="versus">X</p>
-    <div class="lado">
-      <p class="nome">Computador</p>
-      <p id="jogada-computador" class="jogada">?</p>
-    </div>
-  </section>
-  
-  <section class="placar">
-    <p>Você: <span id="pontos-jogador">0</span></p>
-    <p>Computador: <span id="pontos-computador">0</span></p>
-  </section>
+      <div class="lado">
+        <p class="nome">Você</p>
+        <p id="jogada-jogador" class="jogada">?</p>
+      </div>
+      <p class="versus">X</p>
+      <div class="lado">
+        <p class="nome">Computador</p>
+        <p id="jogada-computador" class="jogada">?</p>
+      </div>
+    </section>
 
-  <p id="resultado">Faça sua jogada!</p>
+    <section class="placar">
+      <p>Você: <span id="pontos-jogador">0</span></p>
+      <p>Computador: <span id="pontos-computador">0</span></p>
+    </section>
 
-  <button id="botao-reiniciar">Jogar de novo</button>
+    <p id="resultado">Faça sua jogada!</p>
+
+    <button id="botao-reiniciar">Jogar de novo</button>
+  </main>
 
   <script src="js/jogo.js"></script>
 </body>

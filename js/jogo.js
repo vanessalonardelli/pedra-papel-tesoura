@@ -1,14 +1,24 @@
-const opcoes = ['pedra', 'papel', 'tesoura'];
-
-function escolhaDoComputador() {
-  const indice = Math.floor(Math.random() * opcoes.length);
-  return opcoes[indice];
-}
+const opcoes = ['pedra', 'papel', 'tesoura', 'lagarto', 'spock'];
 
 const regras = {
-  pedra: 'tesoura',
-  papel: 'pedra',
-  tesoura: 'papel'
+  pedra: ['tesoura', 'lagarto'],
+  papel: ['pedra', 'spock'],
+  tesoura: ['papel', 'lagarto'],
+  lagarto: ['spock', 'papel'],
+  spock: ['tesoura', 'pedra']
+};
+
+const acoes = {
+  'tesoura-papel': 'Tesoura corta papel',
+  'papel-pedra': 'Papel cobre pedra',
+  'pedra-lagarto': 'Pedra esmaga lagarto',
+  'lagarto-spock': 'Lagarto envenena Spock',
+  'spock-tesoura': 'Spock quebra tesoura',
+  'tesoura-lagarto': 'Tesoura decapita lagarto',
+  'lagarto-papel': 'Lagarto come papel',
+  'papel-spock': 'Papel refuta Spock',
+  'spock-pedra': 'Spock vaporiza pedra',
+  'pedra-tesoura': 'Pedra quebra tesoura'
 };
 
 const placar = {
@@ -18,10 +28,15 @@ const placar = {
 
 const pontosParaVencer = 3;
 
+function escolhaDoComputador() {
+  const indice = Math.floor(Math.random() * opcoes.length);
+  return opcoes[indice];
+}
+
 function verificarVencedor(jogador, computador) {
   if (jogador === computador) {
     return 'empate';
-  } else if (regras[jogador] === computador) {
+  } else if (regras[jogador].includes(computador)) {
     return 'jogador';
   } else {
     return 'computador';
@@ -88,11 +103,11 @@ function jogarRodada(escolhaJogador) {
     mudarCorResultado('empate');
   } else if (vencedor === 'jogador') {
     placar.jogador++;
-    textoResultado.textContent = 'Você venceu! ' + escolhaJogador + ' vence ' + escolhaComputador + '.';
+    textoResultado.textContent = 'Você venceu! ' + acoes[escolhaJogador + '-' + escolhaComputador] + '.';
     mudarCorResultado('vitoria');
   } else {
     placar.computador++;
-    textoResultado.textContent = 'Você perdeu! ' + escolhaComputador + ' vence ' + escolhaJogador + '.';
+    textoResultado.textContent = 'Você perdeu! ' + acoes[escolhaComputador + '-' + escolhaJogador] + '.';
     mudarCorResultado('derrota');
   }
 

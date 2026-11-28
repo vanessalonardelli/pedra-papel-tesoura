@@ -1,62 +1,89 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  color: #333;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
+  font-family: 'Exo 2', Arial, sans-serif;
+  color: #e2e8f0;
+  background-color: #0b1020;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #ffffff, transparent),
+    radial-gradient(1px 1px at 90px 120px, #cbd5e1, transparent),
+    radial-gradient(1.5px 1.5px at 150px 60px, #ffffff, transparent),
+    radial-gradient(1px 1px at 60px 170px, #94a3b8, transparent),
+    radial-gradient(1.5px 1.5px at 180px 150px, #e2e8f0, transparent),
+    radial-gradient(ellipse at top, #1e2a5a 0%, #0b1020 65%);
+  background-size: 200px 200px, 200px 200px, 200px 200px, 200px 200px, 200px 200px, 100% 100%;
+  min-height: 100vh;
+  margin: 0;
   padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1,
+h2 {
+  font-family: 'Orbitron', Arial, sans-serif;
+}
+
+h1 {
+  color: #67e8f9;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(103, 232, 249, 0.6);
+}
+
+h2 {
+  color: #a78bfa;
 }
 
 .instrucoes {
-  background-color: #fff;
-  border-radius: 8px;
+  background-color: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(103, 232, 249, 0.3);
+  border-radius: 12px;
   padding: 10px 20px;
   margin-bottom: 20px;
 }
 
+.regras {
+  list-style: none;
+  padding: 0;
+  columns: 2;
+  text-align: left;
+  line-height: 1.8;
+}
+
 .opcoes {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.botao-escolha,
-#botao-reiniciar {
-  font-size: 18px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 .botao-escolha {
-  background-color: #2b6cb0;
-  color: #fff;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 15px;
+  color: #e2e8f0;
+  background-color: transparent;
+  border: 2px solid #22d3ee;
+  border-radius: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
-.botao-escolha:hover {
-  background-color: #1e4e80;
+.botao-escolha:hover:not(:disabled) {
+  background-color: rgba(34, 211, 238, 0.15);
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.6);
 }
 
-.placar {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  font-size: 20px;
-  font-weight: bold;
+.botao-escolha:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
-#resultado {
-  font-size: 22px;
-  min-height: 30px;
-}
-
-#botao-reiniciar {
-  background-color: #555;
-  color: #fff;
-}
 .arena {
   display: flex;
   justify-content: center;
@@ -66,39 +93,94 @@ body {
 }
 
 .lado {
-  background-color: #fff;
-  border-radius: 8px;
-  width: 160px;
+  background-color: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(167, 139, 250, 0.5);
+  border-radius: 12px;
+  width: 170px;
   padding: 10px;
 }
 
 .nome {
-  font-weight: bold;
+  color: #a78bfa;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin: 0;
 }
 
 .jogada {
-  font-size: 28px;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 24px;
   text-transform: capitalize;
+  color: #f8fafc;
   margin: 10px 0;
 }
 
 .versus {
-  font-size: 24px;
-  font-weight: bold;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 26px;
+  color: #f472b6;
+  text-shadow: 0 0 10px rgba(244, 114, 182, 0.7);
 }
-.botao-escolha:disabled {
-  background-color: #999;
-  cursor: not-allowed;
+
+.placar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 20px;
+  font-weight: 600;
 }
+
+.placar span {
+  color: #67e8f9;
+}
+
+#resultado {
+  font-size: 20px;
+  min-height: 30px;
+}
+
+#botao-reiniciar {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background-color: #db2777;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+#botao-reiniciar:hover {
+  background-color: #ec4899;
+}
+
 .vitoria {
-  color: #2f855a;
+  color: #4ade80;
 }
 
 .derrota {
-  color: #c53030;
+  color: #f87171;
 }
 
 .empate {
-  color: #718096;
+  color: #94a3b8;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  .regras {
+    columns: 1;
+  }
+
+  .lado {
+    width: 130px;
+  }
+
+  .jogada {
+    font-size: 18px;
+  }
 }
