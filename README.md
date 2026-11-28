@@ -4,7 +4,7 @@
 
 **A versão nerd do clássico, com cinco opções e menos empates.**
 
-[Jogar agora](https://vanessalonardelli.github.io/pedra-papel-tesoura/)
+[Jogar agora](https://vanessalonardelli.github.io/pedra-papel-tesoura-lagarto-spock/)
 
 </div>
 
